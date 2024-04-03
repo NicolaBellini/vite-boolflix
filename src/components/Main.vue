@@ -10,7 +10,9 @@ export default {
 </script>
 
 <template>
-  <div class="text-center my-5 container">main</div>
+  <div class="text-center my-5 container">
+    {{ this.store.tvList }}
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

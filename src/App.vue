@@ -15,7 +15,7 @@ export default {
   },
 
   methods: {
-    getApi(apiUrl) {
+    getApi(apiUrl, arrayName) {
       axios
         .get(apiUrl, {
           params: {
@@ -23,14 +23,18 @@ export default {
           },
         })
         .then((res) => {
-          this.store.tvList = res.data.results;
+          this.store[arrayName] = res.data.results;
           console.log(res.data.results);
+        })
+        .catch((error) => {
+          console.error("Errore nella richiesta API:", error);
         });
     },
   },
 
   mounted() {
-    this.getApi(this.store.tvUrl);
+    this.getApi(this.store.tvUrl, "tvList");
+
     console.log("tvlist", this.store.tvList);
   },
 };
