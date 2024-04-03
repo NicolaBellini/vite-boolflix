@@ -11,16 +11,20 @@ export default {
   data() {
     return {
       store,
-      queryValue: store.queryInput.length > 0 ? store.queryInput : "matrix",
     };
   },
 
   methods: {
-    getApi(apiUrl, arrayName) {
+    getApi(apiUrl, arrayName, type) {
+      apiUrl =
+        this.store.queryInput.length > 0
+          ? apiUrl
+          : `https://api.themoviedb.org/3/${type}/top_rated?api_key=3e148cf1ff2157f850e9f747c1563631`;
+
       axios
         .get(apiUrl, {
           params: {
-            query: this.queryValue,
+            query: this.store.queryInput,
 
             language: "it-IT",
           },
@@ -39,8 +43,8 @@ export default {
   },
 
   mounted() {
-    this.getApi(this.store.movieUrl, "movieList");
-    this.getApi(this.store.tvUrl, "tvList");
+    this.getApi(this.store.movieUrl, "movieList", "movie");
+    this.getApi(this.store.tvUrl, "tvList", "tv");
   },
 };
 </script>
@@ -48,8 +52,8 @@ export default {
 <template>
   <Header
     @startSearch="
-      getApi(this.store.movieUrl, 'movieList');
-      getApi(this.store.tvUrl, 'tvList');
+      getApi(this.store.movieUrl, 'movieList', 'movie');
+      getApi(this.store.tvUrl, 'tvList', 'tv');
     "
   />
   <Main />
