@@ -1,8 +1,12 @@
 <script>
+import { store } from "../../data/store";
 export default {
   data() {
-    return {};
+    return {
+      store,
+    };
   },
+
   props: {
     element: Object,
   },
@@ -11,7 +15,11 @@ export default {
 
 <template>
   <div class="card m-2" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
+    <img
+      :src="`${this.store.imgUrl}${element.poster_path}`"
+      class="card-img-top"
+      alt="..."
+    />
     <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
     <div class="card-body my-card-body">
       <p v-if="element.overview.length === 0">no overview</p>
