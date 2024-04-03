@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       store,
+      queryValue: store.queryInput.length > 0 ? store.queryInput : "matrix",
     };
   },
 
@@ -19,7 +20,8 @@ export default {
       axios
         .get(apiUrl, {
           params: {
-            query: this.store.queryInput,
+            query: this.queryValue,
+
             language: "it-IT",
           },
         })
