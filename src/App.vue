@@ -23,6 +23,7 @@ export default {
           },
         })
         .then((res) => {
+          console.log("------------------");
           this.store[arrayName] = res.data.results;
           console.log(res.data.results);
         })
@@ -33,10 +34,9 @@ export default {
   },
 
   mounted() {
-    this.getApi(this.store.tvUrl, "tvList");
     this.getApi(this.store.movieUrl, "movieList");
 
-    console.log("tvlist", this.store.tvList);
+    this.getApi(this.store.tvUrl, "tvList");
   },
 };
 </script>

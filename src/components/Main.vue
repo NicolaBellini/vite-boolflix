@@ -15,15 +15,18 @@ export default {
 
 <template>
   <div class="text-center my-5 container my-container d-flex">
-    <Card
-      :element="element"
-      v-for="(element, index) in this.store.tvList"
-      :key="index"
-    />
-    <br />
+    <div class="w-100 text-danger fw-bold">film</div>
     <Card
       :element="element"
       v-for="(element, index) in this.store.movieList"
+      :key="index"
+    />
+    <br />
+    <div class="w-100 text-danger fw-bold">serietv</div>
+    <br />
+    <Card
+      :element="element"
+      v-for="(element, index) in this.store.tvList"
       :key="index"
     />
   </div>
