@@ -21,27 +21,41 @@ export default {
       alt=""
     />
     <img
+      v-else
       :src="`${this.store.imgUrl}${element.poster_path}`"
       class="card-img-top"
       alt="..."
     />
     <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
-    <div class="card-body my-card-body">
-      <p v-if="element.overview.length === 0">no overview</p>
-      <p class="card-text">{{ element.overview }}</p>
+
+    <div class="my-card-body">
+      <div class="card-body text-white">
+        <p v-if="element.overview.length === 0">no overview</p>
+        <p class="card-text">{{ element.overview }}</p>
+        <h5>lang: '{{ element.original_language }}'</h5>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        titolo originale:{{ element.original_title }}
-      </li>
-      <li class="list-group-item">lang: '{{ element.original_language }}'</li>
-    </ul>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.my-card-body {
-  height: 200px;
-  overflow: auto;
+.card {
+  height: 480px;
+  position: relative;
+
+  img {
+    height: 392px;
+  }
+  .my-card-body {
+    width: 100%;
+    height: 480px;
+    overflow: auto !important;
+    display: none !important;
+    position: absolute !important;
+  }
+  &:hover .my-card-body {
+    display: block !important;
+    background-color: rgba(0, 0, 0, 0.561) !important;
+  }
 }
 </style>
