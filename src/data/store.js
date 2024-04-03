@@ -10,4 +10,5 @@ export const store = reactive({
   // data
   movieList: [],
   tvList: [],
+  queryInput: "",
 });

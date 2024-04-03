@@ -19,30 +19,37 @@ export default {
       axios
         .get(apiUrl, {
           params: {
-            query: "matrix",
+            query: this.store.queryInput,
+            language: "en-US",
           },
         })
         .then((res) => {
-          console.log("------------------");
+          console.log("----------");
           this.store[arrayName] = res.data.results;
           console.log(res.data.results);
+          console.log(this.store.queryInput);
         })
         .catch((error) => {
           console.error("Errore nella richiesta API:", error);
+          console.log(this.store.queryInput);
         });
     },
   },
 
   mounted() {
     this.getApi(this.store.movieUrl, "movieList");
-
     this.getApi(this.store.tvUrl, "tvList");
   },
 };
 </script>
 
 <template>
-  <Header />
+  <Header
+    @startSearch="
+      getApi(this.store.movieUrl, 'movieList');
+      getApi(this.store.tvUrl, 'tvList');
+    "
+  />
   <Main />
 </template>
 
