@@ -12,8 +12,9 @@ export default {
 <template>
   <div class="card m-2" style="width: 18rem">
     <img src="..." class="card-img-top" alt="..." />
+    <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
     <div class="card-body my-card-body">
-      <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
+      <p v-if="element.overview.length === 0">no overview</p>
       <p class="card-text">{{ element.overview }}</p>
     </div>
     <ul class="list-group list-group-flush">
