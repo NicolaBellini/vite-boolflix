@@ -20,6 +20,7 @@ export default {
       <li class="list-group-item">
         titolo originale:{{ element.original_title }}
       </li>
+      <li class="list-group-item">lang: '{{ element.original_language }}'</li>
     </ul>
   </div>
 </template>

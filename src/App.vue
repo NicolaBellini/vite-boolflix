@@ -20,7 +20,7 @@ export default {
         .get(apiUrl, {
           params: {
             query: this.store.queryInput,
-            language: "en-US",
+            language: "it-IT",
           },
         })
         .then((res) => {
