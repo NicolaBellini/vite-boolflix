@@ -42,6 +42,7 @@ export default {
 .card {
   height: 480px;
   position: relative;
+  overflow: hidden;
 
   img {
     height: 392px;
@@ -52,10 +53,19 @@ export default {
     overflow: auto !important;
     display: none !important;
     position: absolute !important;
+    animation: slideIn 0.6s forwards;
   }
   &:hover .my-card-body {
     display: block !important;
     background-color: rgba(0, 0, 0, 0.561) !important;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 </style>
