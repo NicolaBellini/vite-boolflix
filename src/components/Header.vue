@@ -25,7 +25,7 @@ export default {
           />
           <button
             class="btn btn-outline-success"
-            type="submit"
+            type="button"
             @click="$emit('startSearch')"
           >
             Search
