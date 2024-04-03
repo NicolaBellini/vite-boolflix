@@ -16,6 +16,11 @@ export default {
 <template>
   <div class="card m-2" style="width: 18rem">
     <img
+      v-if="element.poster_path === null"
+      src="https://images.unsplash.com/photo-1560109947-543149eceb16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlbGxpY29sYXxlbnwwfHwwfHx8MA%3D%3D"
+      alt=""
+    />
+    <img
       :src="`${this.store.imgUrl}${element.poster_path}`"
       class="card-img-top"
       alt="..."

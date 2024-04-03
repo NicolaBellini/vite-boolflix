@@ -22,6 +22,7 @@ export default {
             placeholder="Search"
             aria-label="Search"
             v-model="this.store.queryInput"
+            @keyup="$emit('startSearch')"
           />
           <button
             class="btn btn-outline-success"
