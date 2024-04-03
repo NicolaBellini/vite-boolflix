@@ -34,6 +34,7 @@ export default {
 
   mounted() {
     this.getApi(this.store.tvUrl, "tvList");
+    this.getApi(this.store.movieUrl, "movieList");
 
     console.log("tvlist", this.store.tvList);
   },
