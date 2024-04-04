@@ -64,7 +64,9 @@ export default {
 <style lang="scss" scoped>
 @use "./assets/scss/main.scss";
 .wrapper {
-  border: 1px solid grey;
+  margin: 0;
+  padding: 0;
+
   background-color: grey;
 }
 </style>

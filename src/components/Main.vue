@@ -1,6 +1,7 @@
 <script>
 import { store } from "../data/store";
 import Card from "./partials/Card.vue";
+
 export default {
   data() {
     return {
@@ -39,12 +40,16 @@ export default {
       />
     </div>
   </div>
+  .
 </template>
 
 <style lang="scss" scoped>
 .my-container {
+  padding-top: 70px;
+  padding-bottom: 100px;
   justify-content: center;
   flex-wrap: wrap;
+
   .card-container {
     justify-content: center;
     flex-wrap: wrap;
