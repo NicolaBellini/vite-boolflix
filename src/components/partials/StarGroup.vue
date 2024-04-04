@@ -16,10 +16,15 @@ export default {
 <template>
   <div class="starGroup">
     <i class="fa-solid fa-star" v-if="modifiedVote > 0"></i>
+    <i class="fa-regular fa-star" v-else></i>
     <i class="fa-solid fa-star" v-if="modifiedVote > 1"></i>
+    <i class="fa-regular fa-star" v-else></i>
     <i class="fa-solid fa-star" v-if="modifiedVote > 2"></i>
+    <i class="fa-regular fa-star" v-else></i>
     <i class="fa-solid fa-star" v-if="modifiedVote > 3"></i>
+    <i class="fa-regular fa-star" v-else></i>
     <i class="fa-solid fa-star" v-if="modifiedVote > 4"></i>
+    <i class="fa-regular fa-star" v-else></i>
   </div>
 </template>
 
