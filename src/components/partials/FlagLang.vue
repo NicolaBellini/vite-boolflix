@@ -3,10 +3,6 @@ export default {
   props: {
     element: Object,
   },
-  mounted() {
-    console.log(this.element.original_language);
-  },
-  computed: {},
 };
 </script>
 
@@ -19,6 +15,11 @@ export default {
   <img
     v-if="element.original_language === 'it'"
     src="https://flagpedia.net/data/flags/icon/36x27/it.webp"
+    alt=""
+  />
+  <img
+    v-if="element.original_language === 'ja'"
+    src="https://flagpedia.net/data/flags/icon/36x27/jp.webp"
     alt=""
   />
 </template>

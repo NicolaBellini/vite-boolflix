@@ -50,15 +50,21 @@ export default {
 </script>
 
 <template>
-  <Header
-    @startSearch="
-      getApi(this.store.movieUrl, 'movieList', 'movie');
-      getApi(this.store.tvUrl, 'tvList', 'tv');
-    "
-  />
-  <Main />
+  <div class="wrapper">
+    <Header
+      @startSearch="
+        getApi(this.store.movieUrl, 'movieList', 'movie');
+        getApi(this.store.tvUrl, 'tvList', 'tv');
+      "
+    />
+    <Main />
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use "./assets/scss/main.scss";
+.wrapper {
+  border: 1px solid grey;
+  background-color: grey;
+}
 </style>

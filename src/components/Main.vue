@@ -48,7 +48,6 @@ export default {
   .card-container {
     justify-content: center;
     flex-wrap: wrap;
-    background-color: red($color: #000000);
   }
 }
 </style>
