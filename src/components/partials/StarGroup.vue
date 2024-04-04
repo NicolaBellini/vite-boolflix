@@ -1,5 +1,3 @@
-import { store } from "../../data/store";
-
 <script>
 export default {
   props: {

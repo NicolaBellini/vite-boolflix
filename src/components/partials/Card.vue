@@ -1,6 +1,7 @@
 <script>
 import { store } from "../../data/store";
 import StarGroupVue from "./StarGroup.vue";
+import FlagLang from "./FlagLang.vue";
 
 export default {
   data() {
@@ -10,6 +11,7 @@ export default {
   },
   components: {
     StarGroupVue,
+    FlagLang,
   },
 
   props: {
@@ -38,7 +40,7 @@ export default {
         <p v-if="element.overview.length === 0">no overview</p>
         <p class="card-text">{{ element.overview }}</p>
 
-        <h5>lang: '{{ element.original_language }}'</h5>
+        <FlagLang :element="element" />
         <StarGroupVue :element="element" />
       </div>
     </div>
