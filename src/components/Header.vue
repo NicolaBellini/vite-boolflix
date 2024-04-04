@@ -25,11 +25,18 @@ export default {
             @keyup="$emit('startSearch')"
           />
           <button
-            class="btn btn-outline-success"
+            class="btn btn-outline-success m-1"
             type="button"
-            @click="$emit('startSearch')"
+            @click="$emit('startSearch'), (store.queryInput = '')"
           >
             Search
+          </button>
+          <button
+            class="btn btn-outline-primary m-1"
+            type="button"
+            @click="(store.queryInput = ''), $emit('startSearch')"
+          >
+            Reset
           </button>
         </form>
       </div>
