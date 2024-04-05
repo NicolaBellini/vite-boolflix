@@ -30,13 +30,23 @@ export default {
           >
 
           <form class="d-flex" role="search">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
             <input
               class="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
               v-model="this.store.queryInput"
-              @keyup="handleSearch(), $emit('startSearch')"
+              @keyup.enter="
+                handleSearch(),
+                  $emit('startSearch'),
+                  console.log(store.queryInput)
+              "
             />
             <button
               class="btn btn-outline-danger m-1"
