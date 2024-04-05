@@ -40,12 +40,13 @@ export default {
     object-fit: cover;
   }
   .text {
-    color: rgb(172, 172, 172);
+    color: rgb(255, 255, 255);
     margin: 0 40px;
     text-align: start;
     width: 50%;
     font-size: 3rem;
     p {
+      color: grey;
       font-size: 1.5rem;
     }
   }

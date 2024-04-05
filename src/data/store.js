@@ -2,6 +2,9 @@ import { reactive } from "vue";
 
 export const store = reactive({
   // url
+  genreUrl:
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=3e148cf1ff2157f850e9f747c1563631",
+
   topRatedTvUrl: `https://api.themoviedb.org/3/tv/top_rated?api_key=3e148cf1ff2157f850e9f747c1563631`,
   topRatedMovieUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=3e148cf1ff2157f850e9f747c1563631`,
 
@@ -19,5 +22,9 @@ export const store = reactive({
   trendingList: [],
   movieList: [],
   tvList: [],
+  genreList: [],
   queryInput: "",
+  selectValue: "",
+
+  movieGenreList: [],
 });

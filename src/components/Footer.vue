@@ -106,7 +106,7 @@ export default {};
                 font-size: 1.5rem;
 
                 &:hover {
-                  color: #e50914; // Netflix red
+                  color: #e50914;
                 }
               }
             }

@@ -22,19 +22,30 @@ export default {
     <div class="container d-flex">
       <nav class="navbar navbar-expand-lg bg-body-tertiary my-nav">
         <div class="container-fluid my-container">
-          <a
-            class="navbar-brand text-danger fw-bolder fs-3"
-            href="#"
-            @click="(store.queryInput = ''), $emit('startSearch')"
-            >BOOLFLIX</a
-          >
+          <div class="my-logo">
+            <a
+              class="navbar-brand text-danger fw-bolder fs-3"
+              href="#"
+              @click="(store.queryInput = ''), $emit('startSearch')"
+              >BOOLFLIX</a
+            >
+          </div>
 
           <form class="d-flex" role="search">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select
+              v-model="store.selectValue"
+              class="form-select"
+              aria-label="Default select example"
+              @change="$emit('genreSearch')"
+            >
+              <option selected value="0">Open this select menu</option>
+              <option
+                :value="item.id"
+                v-for="(item, index) in store.genreList"
+                :key="index"
+              >
+                {{ item.name }}
+              </option>
             </select>
             <input
               class="form-control me-2"

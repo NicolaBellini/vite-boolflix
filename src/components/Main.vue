@@ -57,6 +57,25 @@ export default {
       </swiper-slide>
     </swiper>
 
+    <p>ricerca per genere</p>
+    <swiper
+      v-if="store.tvList.length > 0"
+      :slidesPerView="5"
+      :spaceBetween="0"
+      :pagination="{
+        clickable: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide
+        v-for="(element, index) in this.store.movieGenreList"
+        :key="index"
+      >
+        <Card v-if="store.tvList.length > 0" :element="element" />
+      </swiper-slide>
+    </swiper>
+
     <h2 class="m-5 text-danger fw-bold" v-if="store.queryInput == 0">
       Trending Week
     </h2>
@@ -137,10 +156,6 @@ export default {
   padding-bottom: 100px;
   justify-content: center;
   flex-wrap: wrap;
-  // Card {
-  //   position: relative;
-  //   z-index: 333;
-  // }
 
   .card-container {
     justify-content: center;
@@ -157,15 +172,9 @@ export default {
     font-size: 18px;
     background: #40404000;
 
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
-    align-items: flex-start img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    align-items: flex-start;
   }
 }
 </style>
