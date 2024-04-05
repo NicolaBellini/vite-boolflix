@@ -57,9 +57,9 @@ export default {
       </swiper-slide>
     </swiper>
 
-    <p>ricerca per genere</p>
+    <p v-if="store.movieGenreList.length > 0">ricerca per genere</p>
     <swiper
-      v-if="store.tvList.length > 0"
+      v-if="store.movieGenreList.length > 0"
       :slidesPerView="5"
       :spaceBetween="0"
       :pagination="{
