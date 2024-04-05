@@ -62,7 +62,7 @@ export default {
     </h2>
     <swiper
       v-if="store.queryInput == 0"
-      :slidesPerView="3.5"
+      :slidesPerView="5"
       :spaceBetween="0"
       :pagination="{
         clickable: true,
@@ -83,7 +83,7 @@ export default {
     </h2>
     <swiper
       v-if="store.movieList.length > 0"
-      :slidesPerView="3.5"
+      :slidesPerView="5"
       :spaceBetween="0"
       :pagination="{
         clickable: true,
@@ -104,7 +104,7 @@ export default {
     </h2>
     <swiper
       v-if="store.tvList.length > 0"
-      :slidesPerView="3.5"
+      :slidesPerView="5"
       :spaceBetween="0"
       :pagination="{
         clickable: true,
