@@ -22,8 +22,6 @@ export default {
 };
 </script>
 
-:aria-labelledby="'staticBackdropLabel-' + element.id"
-
 <template>
   <div class="card m-2" style="width: 18rem">
     <img
@@ -50,7 +48,7 @@ export default {
     <div
       class="modal fade"
       :id="'staticBackdrop-' + element.id"
-      data-bs-backdrop="static"
+      data-bs-backdrop="scrolling"
       data-bs-keyboard="false"
       tabindex="-1"
       :aria-labelledby="'staticBackdropLabel-' + element.id"
@@ -116,21 +114,15 @@ export default {
   }
 }
 
-.card:hover {
-  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
-  .card-button {
-    transform: translate(-50%, 50%);
-    opacity: 1;
-  }
-}
-
 /* Stile per il modal */
 .modal {
-  z-index: 99999999;
+  position: absolute;
+  width: 130%;
+  left: -16%;
   &.fade {
     .modal-dialog {
       &.modal-lg {
-        max-width: 60%;
+        max-width: 130%;
         width: auto;
       }
     }

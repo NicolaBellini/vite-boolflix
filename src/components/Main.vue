@@ -31,7 +31,7 @@ export default {
   <div class="text-center my-5 container my-container d-flex flex-column">
     <swiper
       :slidesPerView="3"
-      :spaceBetween="30"
+      :spaceBetween="0"
       :pagination="{
         clickable: true,
       }"

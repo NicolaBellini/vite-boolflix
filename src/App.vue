@@ -50,7 +50,7 @@ export default {
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="wrapper-app">
     <Header
       @startSearch="
         getApi(this.store.movieUrl, 'movieList', 'movie');
@@ -61,12 +61,12 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "./assets/scss/main.scss";
 .modal-backdrop {
-  background-color: red !important;
+  display: none !important;
 }
-.wrapper {
+.wrapper-app {
   margin: 0;
   padding: 0;
 
