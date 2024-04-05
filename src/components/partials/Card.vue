@@ -38,11 +38,11 @@ export default {
     <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn btn-outline-dark w-50 info-button"
       data-bs-toggle="modal"
       :data-bs-target="'#staticBackdrop-' + element.id"
     >
-      Launch static backdrop modal
+      info
     </button>
 
     <!-- Modal -->
@@ -55,7 +55,7 @@ export default {
       :aria-labelledby="'staticBackdropLabel-' + element.id"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
@@ -82,7 +82,7 @@ export default {
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-dark"
+              class="btn btn-outline-dark card-button"
               data-bs-dismiss="modal"
             >
               Close
@@ -96,32 +96,71 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  height: 480px;
+  height: 500px;
+  border-radius: 20px;
+  background: #f5f5f5;
   position: relative;
-  overflow: hidden;
+  padding: 1rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
 
   img {
     height: 392px;
   }
-  // .my-card-body {
-  //   width: 100%;
-  //   height: 480px;
-  //   overflow: auto !important;
-  //   display: none !important;
-  //   position: absolute !important;
-  //   animation: slideIn 0.6s forwards;
-  // }
-  // &:hover .my-card-body {
-  //   display: block !important;
-  //   background-color: rgba(0, 0, 0, 0.561) !important;
-  // }
+
+  .info-button {
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
 }
-// @keyframes slideIn {
-//   from {
-//     transform: translateY(100%);
-//   }
-//   to {
-//     transform: translateY(0);
-//   }
-// }
+
+.card:hover {
+  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+  .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+  }
+}
+
+/* Stile per il modal */
+.modal {
+  &.fade {
+    .modal-dialog {
+      &.modal-lg {
+        max-width: 60%;
+        width: auto;
+      }
+    }
+  }
+
+  .modal-content {
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    border: 2px solid #c3c6ce;
+
+    .modal-header {
+      .modal-title {
+        font-size: 1.5rem;
+        color: #333;
+      }
+    }
+
+    .modal-body {
+      .card-body {
+        .card-text {
+          font-size: 1rem;
+          color: #555;
+        }
+      }
+    }
+
+    .modal-footer {
+      .card-button {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    }
+  }
+}
 </style>

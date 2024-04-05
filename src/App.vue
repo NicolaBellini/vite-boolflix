@@ -67,6 +67,6 @@ export default {
   margin: 0;
   padding: 0;
 
-  background-color: grey;
+  background-color: rgb(0, 0, 0);
 }
 </style>
