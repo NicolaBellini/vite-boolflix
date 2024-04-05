@@ -24,29 +24,31 @@ export default {
 
 <template>
   <div class="card m-2" style="width: 18rem">
-    <img
-      v-if="element.poster_path === null"
-      src="https://images.unsplash.com/photo-1560109947-543149eceb16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlbGxpY29sYXxlbnwwfHwwfHx8MA%3D%3D"
-      alt=""
-    />
-    <img
-      v-else
-      :src="`${this.store.imgUrl}${element.poster_path}`"
-      class="card-img-top"
-      alt="..."
-    />
-    <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
-    <button
-      type="button"
-      class="btn btn-outline-dark w-50 info-button"
-      data-bs-toggle="modal"
-      :data-bs-target="'#staticBackdrop-' + element.id"
-    >
-      info
-    </button>
+    <div class="front">
+      <img
+        v-if="element.poster_path === null"
+        src="https://images.unsplash.com/photo-1560109947-543149eceb16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlbGxpY29sYXxlbnwwfHwwfHx8MA%3D%3D"
+        alt=""
+      />
+      <img
+        v-else
+        :src="`${this.store.imgUrl}${element.poster_path}`"
+        class="card-img-top"
+        alt="..."
+      />
+      <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
+      <button
+        type="button"
+        class="btn btn-outline-light w-50 info-button"
+        data-bs-toggle="modal"
+        :data-bs-target="'#staticBackdrop-' + element.id"
+      >
+        info
+      </button>
+    </div>
     <!-- Modal -->
     <div
-      class="modal fade"
+      class="modal"
       :id="'staticBackdrop-' + element.id"
       data-bs-backdrop="scrolling"
       data-bs-keyboard="false"
@@ -67,6 +69,8 @@ export default {
               aria-label="Close"
             ></button>
           </div>
+
+          <!-- modalBody -->
           <div class="modal-body">
             <div class="my-card-body">
               <div class="card-body">
@@ -95,30 +99,42 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  height: 100%;
+  width: 100%;
+  height: 70%;
   border-radius: 20px;
-  background: #f5f5f5;
+  background: #000000;
   position: relative;
-  padding: 1rem;
-  border: 2px solid #c3c6ce;
+
+  // border: 2px solid #c3c6ce;
   transition: 0.5s ease-out;
   overflow: visible;
+  color: white;
+  .front {
+    img {
+      height: 400px;
+      width: 100%;
+      border-radius: 20px;
+    }
 
-  img {
-    height: 392px;
-  }
-
-  .info-button {
-    margin: 0 auto;
-    margin-bottom: 5px;
+    .info-button {
+      position: absolute;
+      bottom: -90px;
+      right: 23%;
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
   }
 }
 
 /* Stile per il modal */
 .modal {
+  opacity: 0.9;
+  height: 500px;
+  color: white;
   position: absolute;
   width: 130%;
   left: -16%;
+  overflow: visible;
   &.fade {
     .modal-dialog {
       &.modal-lg {
@@ -130,21 +146,23 @@ export default {
 
   .modal-content {
     border-radius: 20px;
-    background-color: #f5f5f5;
+    background-color: #000000;
     border: 2px solid #c3c6ce;
 
     .modal-header {
       .modal-title {
+        text-align: center;
         font-size: 1.5rem;
-        color: #333;
       }
     }
 
     .modal-body {
       .card-body {
         .card-text {
+          max-height: 200px;
+          overflow: auto;
           font-size: 1rem;
-          color: #555;
+          color: #cdcdcd;
         }
       }
     }

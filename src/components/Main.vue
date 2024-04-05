@@ -28,9 +28,11 @@ export default {
 </script>
 
 <template>
-  <div class="text-center my-5 container my-container d-flex flex-column">
+  <div class="text-center my-5 container-fluid my-container d-flex flex-column">
+    <h2 class="text-danger fw-bold" v-if="store.movieList.length > 0">film</h2>
     <swiper
-      :slidesPerView="3"
+      v-if="store.movieList.length > 0"
+      :slidesPerView="3.5"
       :spaceBetween="0"
       :pagination="{
         clickable: true,
@@ -45,11 +47,23 @@ export default {
         <Card v-if="store.movieList.length > 0" :element="element" />
       </swiper-slide>
     </swiper>
-    <div class="container card-container d-flex">
-      <div class="w-100 text-danger fw-bold" v-if="store.movieList.length > 0">
-        film
-      </div>
-    </div>
+
+    <swiper
+      v-if="store.movieList.length > 0"
+      :slidesPerView="3.5"
+      :spaceBetween="0"
+      :pagination="{
+        clickable: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="(element, index) in this.store.tvList" :key="index">
+        <Card :element="element" />
+      </swiper-slide>
+    </swiper>
+
+    <div class="container card-container d-flex"></div>
 
     <div class="card-container d-flex">
       <div class="w-100 text-danger fw-bold" v-if="store.tvList.length > 0">
@@ -72,36 +86,37 @@ export default {
   padding-bottom: 100px;
   justify-content: center;
   flex-wrap: wrap;
-  Card {
-    position: relative;
-    z-index: 333;
-  }
+  // Card {
+  //   position: relative;
+  //   z-index: 333;
+  // }
 
   .card-container {
     justify-content: center;
     flex-wrap: wrap;
   }
 }
-.swiper {
+
+.my-container .swiper {
   width: 100%;
   height: 600px;
-}
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #404040;
+  &-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #40404000;
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 </style>

@@ -6,6 +6,14 @@ export default {
       store,
     };
   },
+  methods: {
+    handleSearch() {
+      if (this.store.movieList.length == 0 && this.store.tvList.length == 0) {
+        this.store.queryInput = "";
+        this.$emit("startSearch");
+      }
+    },
+  },
 };
 </script>
 
@@ -28,7 +36,7 @@ export default {
               placeholder="Search"
               aria-label="Search"
               v-model="this.store.queryInput"
-              @keyup="$emit('startSearch')"
+              @keyup="handleSearch(), $emit('startSearch')"
             />
             <button
               class="btn btn-outline-danger m-1"
@@ -58,14 +66,15 @@ export default {
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: #484848;
+  background-color: #363636;
   .container {
     display: flex;
     justify-content: center;
     .my-nav {
+      padding: 20px;
       width: 100%;
       position: fixed;
-      background-color: #484848 !important;
+      background-color: #222222 !important;
       .my-container {
         max-width: 1320px;
       }
