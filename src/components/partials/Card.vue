@@ -22,6 +22,8 @@ export default {
 };
 </script>
 
+:aria-labelledby="'staticBackdropLabel-' + element.id"
+
 <template>
   <div class="card m-2" style="width: 18rem">
     <img
@@ -44,7 +46,6 @@ export default {
     >
       info
     </button>
-
     <!-- Modal -->
     <div
       class="modal fade"
@@ -96,7 +97,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  height: 500px;
+  height: 100%;
   border-radius: 20px;
   background: #f5f5f5;
   position: relative;
@@ -125,6 +126,7 @@ export default {
 
 /* Stile per il modal */
 .modal {
+  z-index: 99999999;
   &.fade {
     .modal-dialog {
       &.modal-lg {

@@ -63,6 +63,9 @@ export default {
 
 <style lang="scss" scoped>
 @use "./assets/scss/main.scss";
+.modal-backdrop {
+  background-color: red !important;
+}
 .wrapper {
   margin: 0;
   padding: 0;

@@ -9,12 +9,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 export default {
   data() {
     return {
       store,
       modules: [Navigation],
+      modules: [Pagination],
     };
   },
   components: {
@@ -27,13 +29,21 @@ export default {
 
 <template>
   <div class="text-center my-5 container my-container d-flex flex-column">
-    <swiper :navigation="true" :modules="modules" class="mySwiper">
+    <swiper
+      :slidesPerView="3"
+      :spaceBetween="30"
+      :pagination="{
+        clickable: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
       <swiper-slide
         v-for="(element, index) in this.store.movieList"
         :key="index"
       >
-        <Card v-show="store.movieList.length > 0" :element="element"
-      /></swiper-slide>
+        <Card v-if="store.movieList.length > 0" :element="element" />
+      </swiper-slide>
     </swiper>
     <div class="container card-container d-flex">
       <div class="w-100 text-danger fw-bold" v-if="store.movieList.length > 0">
@@ -62,6 +72,10 @@ export default {
   padding-bottom: 100px;
   justify-content: center;
   flex-wrap: wrap;
+  Card {
+    position: relative;
+    z-index: 333;
+  }
 
   .card-container {
     justify-content: center;
@@ -70,7 +84,7 @@ export default {
 }
 .swiper {
   width: 100%;
-  height: 200px;
+  height: 600px;
 }
 
 .swiper-slide {
