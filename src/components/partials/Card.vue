@@ -129,11 +129,12 @@ export default {
 /* Stile per il modal */
 .modal {
   opacity: 0.9;
-  height: 500px;
+  height: 700px;
   color: white;
   position: absolute;
-  width: 130%;
-  left: -16%;
+  width: 200%;
+  left: -50%;
+  top: -16%;
   overflow: visible;
   &.fade {
     .modal-dialog {
@@ -145,6 +146,7 @@ export default {
   }
 
   .modal-content {
+    height: 550px;
     border-radius: 20px;
     background-color: #000000;
     border: 2px solid #c3c6ce;
