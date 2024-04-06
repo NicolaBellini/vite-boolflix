@@ -69,7 +69,10 @@ export default {
             <button
               class="btn btn-outline-light m-1"
               type="button"
-              @click="(store.queryInput = ''), $emit('startSearch')"
+              @click="
+                (store.queryInput = ''), (store.selectValue = '0');
+                $emit('startSearch', 'genreSearch');
+              "
             >
               Reset
             </button>

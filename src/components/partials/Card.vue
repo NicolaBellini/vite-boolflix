@@ -29,16 +29,12 @@ export default {
         v-if="element.poster_path === null"
         src="https://images.unsplash.com/photo-1560109947-543149eceb16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlbGxpY29sYXxlbnwwfHwwfHx8MA%3D%3D"
         alt="Image not available!"
-        data-bs-toggle="modal"
-        :data-bs-target="'#staticBackdrop-' + element.id"
       />
       <img
         v-else
         :src="`${this.store.imgUrl}${element.poster_path}`"
         class="card-img-top"
         alt="..."
-        data-bs-toggle="modal"
-        :data-bs-target="'#staticBackdrop-' + element.id"
       />
       <h5 class="card-title">{{ element.name }}{{ element.title }}</h5>
       <button

@@ -45,7 +45,7 @@ export default {
     },
     getFilmByGenre(apiUrl, num, arrayName) {
       apiUrl =
-        this.store.selectValue != 0
+        this.store.selectValue != "0"
           ? `https://api.themoviedb.org/3/discover/movie?api_key=3e148cf1ff2157f850e9f747c1563631&with_genres=${num}`
           : "https://api.themoviedb.org/3/search/movie?api_key=3e148cf1ff2157f850e9f747c1563631";
 
