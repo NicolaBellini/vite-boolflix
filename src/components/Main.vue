@@ -57,7 +57,9 @@ export default {
       </swiper-slide>
     </swiper>
 
-    <p v-if="store.movieGenreList.length > 0">ricerca per genere</p>
+    <h2 class="m-5 fw-bold" v-if="store.movieGenreList.length > 0">
+      Ricerca per genere
+    </h2>
     <swiper
       v-if="store.movieGenreList.length > 0"
       :slidesPerView="5"
@@ -76,9 +78,7 @@ export default {
       </swiper-slide>
     </swiper>
 
-    <h2 class="m-5 text-danger fw-bold" v-if="store.queryInput == 0">
-      Trending Week
-    </h2>
+    <h2 class="m-5 fw-bold" v-if="store.queryInput == 0">Trending Week</h2>
     <swiper
       v-if="store.queryInput == 0"
       :slidesPerView="5"
@@ -97,9 +97,7 @@ export default {
       </swiper-slide>
     </swiper>
 
-    <h2 class="m-5 text-danger fw-bold" v-if="store.movieList.length > 0">
-      film
-    </h2>
+    <h2 class="m-5 fw-bold" v-if="store.movieList.length > 0">Film</h2>
     <swiper
       v-if="store.movieList.length > 0"
       :slidesPerView="5"
@@ -118,9 +116,7 @@ export default {
       </swiper-slide>
     </swiper>
 
-    <h2 class="m-5 text-danger fw-bold" v-if="store.tvList.length > 0">
-      serietv
-    </h2>
+    <h2 class="m-5 fw-bold" v-if="store.tvList.length > 0">Serie TV</h2>
     <swiper
       v-if="store.tvList.length > 0"
       :slidesPerView="5"
@@ -135,17 +131,6 @@ export default {
         <Card v-if="store.tvList.length > 0" :element="element" />
       </swiper-slide>
     </swiper>
-
-    <div class="container card-container d-flex"></div>
-
-    <div class="card-container d-flex">
-      <br />
-      <Card
-        :element="element"
-        v-for="(element, index) in this.store.trendingList"
-        :key="index"
-      />
-    </div>
   </div>
   .
 </template>
@@ -156,6 +141,11 @@ export default {
   padding-bottom: 100px;
   justify-content: center;
   flex-wrap: wrap;
+  h2 {
+    color: white;
+    text-align: start;
+    font-size: 3rem;
+  }
 
   .card-container {
     justify-content: center;

@@ -26,4 +26,11 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+.starGroup {
+  margin-top: 30px;
+  .fa-solid {
+    color: red;
+  }
+}
+</style>
