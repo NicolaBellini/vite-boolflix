@@ -34,7 +34,7 @@ export default {
           <form class="d-flex" role="search">
             <select
               v-model="store.selectValue"
-              class="form-select"
+              class="form-select m-2"
               aria-label="Default select example"
               @change="$emit('genreSearch')"
             >
@@ -48,7 +48,7 @@ export default {
               </option>
             </select>
             <input
-              class="form-control me-2"
+              class="form-control m-2"
               type="search"
               placeholder="Search"
               aria-label="Search"

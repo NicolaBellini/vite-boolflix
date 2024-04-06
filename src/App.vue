@@ -1,11 +1,13 @@
 <script>
 import { store } from "./data/store";
 import axios from "axios";
+import LoadingVideo from "./components/partials/LoadingVideo.vue";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
 export default {
   components: {
+    LoadingVideo,
     Header,
     Main,
     Footer,
@@ -13,6 +15,7 @@ export default {
   data() {
     return {
       store,
+      isLoading: true,
     };
   },
 
@@ -109,6 +112,9 @@ export default {
   },
 
   mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000); // 2000 millisecondi = 2 secondi
     this.getApi(this.store.topRatedMovieUrl, "movieList", "movie");
     this.getApi(this.store.topRatedTvUrl, "tvList", "tv");
     this.getGenreApi(this.store.genreUrl, "genreList");
@@ -119,6 +125,7 @@ export default {
 
 <template>
   <div class="wrapper-app">
+    <LoadingVideo v-if="isLoading" />
     <Header
       @startSearch="
         getApi(this.store.movieUrl, 'movieList', 'movie');
